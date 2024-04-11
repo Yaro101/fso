@@ -1,4 +1,5 @@
 sequenceDiagram
+
     participant browser
     participant server
     participant user
