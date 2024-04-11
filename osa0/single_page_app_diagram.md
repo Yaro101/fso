@@ -1,4 +1,5 @@
 sequenceDiagram where the user goes to the single-page app
+
     participant browser
     participant server
     participant user
