@@ -1,0 +1,54 @@
+{
+  "persons": [
+    {
+      "name": "Arto Hellas",
+      "number": "010-10101001",
+      "id": "1"
+    },
+    {
+      "name": "Ada Lovelace",
+      "number": "39-44-5323523",
+      "id": "2"
+    },
+    {
+      "name": "Dan Abramov",
+      "number": "12-43-234345",
+      "id": "3"
+    },
+    {
+      "name": "Mary Poppendieck",
+      "number": "39-23-6423122",
+      "id": "4"
+    },
+    {
+      "id": "7a92",
+      "name": "Heli Sinetti",
+      "number": "355-524523"
+    },
+    {
+      "id": "6c72",
+      "name": "Sami Tallis",
+      "number": "423-65476156"
+    },
+    {
+      "id": "0daa",
+      "name": "Alaris Visla",
+      "number": "132-1234567"
+    },
+    {
+      "id": "0e79",
+      "name": "Colette Duvalle",
+      "number": "000-00-000000"
+    },
+    {
+      "id": "fffa",
+      "name": "Heidi Fowler",
+      "number": "00-000-0000"
+    },
+    {
+      "id": "0ef7",
+      "name": "Rami Soussi",
+      "number": "000-000-00000"
+    }
+  ]
+}
