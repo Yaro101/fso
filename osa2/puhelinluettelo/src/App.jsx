@@ -14,7 +14,7 @@ const App = () => {
   const [newNotification, setNewNotification] = useState(null);
 
   useEffect(() => {
-    console.log("Current value of persons: ", persons);
+    // console.log("Current value of persons: ", persons);
     personsService
       .getAll()
       .then((initialPhoneBook) => setPersons(initialPhoneBook))
@@ -82,7 +82,7 @@ const App = () => {
         .catch((error) => {
           console.log("Error:", error);
           console.log(error.response.data.error);
-          console.error("Error !!! adding person:", error);
+          console.error("Error adding person:", error);
           setNewNotification({
             message: error.response.data.error,
             type: "error",
@@ -118,7 +118,7 @@ const App = () => {
           } else {
             console.error("Error deleting person:", error);
             setNewNotification({
-              message: "Error deleting person.",
+              message: error.response.data.error,
               type: "error",
             });
             setTimeout(() => setNewNotification(null), 3000);
