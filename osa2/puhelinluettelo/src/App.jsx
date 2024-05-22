@@ -17,12 +17,8 @@ const App = () => {
     console.log("Current value of persons: ", persons);
     personsService
       .getAll()
-      .then((initialPhoneBook) => {
-        setPersons(initialPhoneBook);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
+      .then((initialPhoneBook) => setPersons(initialPhoneBook))
+      .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
   const addPerson = (event) => {
@@ -36,9 +32,7 @@ const App = () => {
         message: `${newName} on jo tallennettu puhelinluetteloon`,
         type: "success",
       });
-      setTimeout(() => {
-        setNewNotification(null);
-      }, 3000);
+      setTimeout(() => setNewNotification(null), 3000);
     } else if (existingPerson) {
       const confirmUpdate = window.confirm(
         `${newName} is already added to phonebook, replace the old number wih a new one?`
@@ -59,9 +53,7 @@ const App = () => {
               message: `${newName}'s number updated successfully`,
               type: "success",
             });
-            setTimeout(() => {
-              setNewNotification(null);
-            }, 3000);
+            setTimeout(() => setNewNotification(null), 3000);
           })
           .catch((error) => {
             console.error("Error updating person:", error);
@@ -69,9 +61,7 @@ const App = () => {
               message: "Error updating the nwme",
               type: "error",
             });
-            setTimeout(() => {
-              setNewNotification(null);
-            }, 3000);
+            setTimeout(() => setNewNotification(null), 3000);
           });
       }
     } else {
@@ -86,9 +76,7 @@ const App = () => {
             message: `${newName} added successfully`,
             type: "success",
           });
-          setTimeout(() => {
-            setNewNotification(null);
-          }, 3000);
+          setTimeout(() => setNewNotification(null), 3000);
         })
         .catch((error) => {
           console.error("Error adding person:", error);
@@ -96,21 +84,14 @@ const App = () => {
             message: "Error adding person.",
             type: "error",
           });
-          setTimeout(() => {
-            setNewNotification(null);
-          }, 3000);
+          setTimeout(() => setNewNotification(null), 3000);
         });
     }
   };
-  const handleNameChange = (event) => {
-    setNewName(event.target.value);
-  };
-  const handleNumberChange = (event) => {
-    setNewNumber(event.target.value);
-  };
-  const handleFilterChange = (event) => {
-    setFilterValue(event.target.value);
-  };
+  const handleNameChange = (event) => setNewName(event.target.value);
+  const handleNumberChange = (event) => setNewNumber(event.target.value);
+  const handleFilterChange = (event) => setFilterValue(event.target.value);
+
   const handleDelete = (id, name) => {
     const confirmDelete = window.confirm(`Delete ${name} ?`);
     if (confirmDelete) {
@@ -122,9 +103,7 @@ const App = () => {
             message: `${newName} deleted successfully`,
             type: "success",
           });
-          setTimeout(() => {
-            setNewNotification(null);
-          }, 3000);
+          setTimeout(() => setNewNotification(null), 3000);
         })
         .catch((error) => {
           if (error.response && error.response.status === 404) {
@@ -132,18 +111,14 @@ const App = () => {
               message: `${newName} no longer exist`,
               type: "error",
             });
-            setTimeout(() => {
-              setNewNotification(null);
-            }, 3000);
+            setTimeout(() => setNewNotification(null), 3000);
           } else {
             console.error("Error deleting person:", error);
             setNewNotification({
               message: "Error deleting person.",
               type: "error",
             });
-            setTimeout(() => {
-              setNewNotification(null);
-            }, 3000);
+            setTimeout(() => setNewNotification(null), 3000);
           }
         });
     }
