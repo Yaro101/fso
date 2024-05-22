@@ -58,7 +58,7 @@ const App = () => {
           .catch((error) => {
             console.error("Error updating person:", error);
             setNewNotification({
-              message: "Error updating the nwme",
+              message: error.response.data.error,
               type: "error",
             });
             setTimeout(() => setNewNotification(null), 3000);
@@ -79,9 +79,10 @@ const App = () => {
           setTimeout(() => setNewNotification(null), 3000);
         })
         .catch((error) => {
+          console.log(error.response.data.error)
           console.error("Error adding person:", error);
           setNewNotification({
-            message: "Error adding person.",
+            message: error.response.data.error,
             type: "error",
           });
           setTimeout(() => setNewNotification(null), 3000);
